@@ -46,41 +46,66 @@ function FormContact(){
 
 
     return(
-    <form className="form" onSubmit={handleSubmit}>
-      <label>First Name</label>
-        <input 
+    <div className="mx-auto px-8 my-8 md:w-5/12" data-te-input-wrapper-init>
+    <form className="bg-emerald-600 py-10 px-5 flex flex-col" onSubmit={handleSubmit}>
+      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">
+          First Name
+      </label>
+      <input 
+        className="bg-neutral-300 border w-full border-slate-400 rounded px-3 py-[0.32rem]"
+        id="exampleFormControlInput1"
         type="text"
-        placeholder="Type first name"
+        placeholder="First Name"
         value ={firstname}
         onChange={(event) => setFirstName(event.target.value)} 
-        />
-        <span>{error.firstname}</span>
-      <label>Last Name</label>
+      />
+        <span className="text-left px-1 text-rose-800 pb-5">{error.firstname}</span>
+      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Last Name</label>
         <input 
+        className="bg-neutral-300 border w-full border-slate-400 rounded px-3 py-[0.32rem]"
         type="text"
         placeholder="Type last name"
         value = {secname}
         onChange={(event) =>setSecName(event.target.value)}
         />
-        <span>{error.secname}</span>
-      <label>Email</label>
+        <span className="text-left px-1 text-rose-800 pb-5">{error.secname}</span>
+      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Email</label>
         <input 
+        className="bg-neutral-300 border w-full border-slate-400 rounded px-3 py-[0.32rem]"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(event) =>setEmail(event.target.value)}
         />
-        <span>{error.email}</span>
-        <label>Message</label>
+        <span className="text-left px-1 text-rose-800 pb-5">{error.email}</span>
+      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Message</label>
         <textarea 
+        className="bg-neutral-300 border w-full border-slate-400 rounded px-3 py-[0.32rem]"
         rows= "2"
         placeholder="Write message"
         value={message}
         onChange={(event) =>setMessage(event.target.value)}
         />
-        <span>{error.message}</span>
-      <button className="sendBtn" type="submit">Send</button>
+        <span className="text-left px-1 text-rose-800 pb-5">{error.message}</span>
+      <button className="sendBtn rounded bg-green-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
+        Send 
+        <svg
+        id="animate-hover"
+        data-te-animation-init
+        data-te-animation-start="onHover"
+        data-te-animation-reset="true"
+        data-te-animation="[slide-right_1s_ease-in-out]"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="h-5 w-5 flex items-center">
+        <path
+          d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+        </svg>
+      </button>
     </form>
+    </div>
     )
+
 }
 export default FormContact;
