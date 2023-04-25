@@ -6,12 +6,10 @@ import FormContact from "./FormContact";
 
 function App(){
   return(
-    <>
-    <div className="reactForm">
-    <div> <h2>React Form</h2> </div>
+    <div className="h-screen bg-gradient-to-r from-purple-500 to-pink-500">
+    
     <FormContact />
     </div>
-    </>
   )
 }
 export default App;

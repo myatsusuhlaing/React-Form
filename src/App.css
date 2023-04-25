@@ -14,6 +14,10 @@ input,.sendBtn{
   padding: 5px;
   margin-bottom: 10px;
 }
+.backImag{
+  background-image: url(./image/bgimage.jpg);
+  background-size: cover;
+}
 textarea{
   width: 30%;
 }
