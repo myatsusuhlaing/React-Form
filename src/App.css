@@ -1,4 +1,4 @@
-.reactForm{
+/* .reactForm{
   text-align: center;
   margin: 0 auto;
 }
@@ -8,16 +8,16 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
-}
-input,.sendBtn{
+} */
+/* input,.sendBtn{
   width: 30%;
   padding: 5px;
   margin-bottom: 10px;
-}
+} */
 .backImag{
   background-image: url(./image/bgimage.jpg);
   background-size: cover;
 }
-textarea{
+/* textarea{
   width: 30%;
-}
+} */
