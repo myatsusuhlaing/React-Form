@@ -1,105 +1,147 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function FormContact(){
-    const [firstname,setFirstName] = useState('');
-    const [secname,setSecName] = useState('');
-    const [email,setEmail] = useState('');
-    const [message,setMessage] = useState('');
-    const [error,setError] = useState({});
+function FormContact() {
+  const [firstname, setFirstName] = useState("");
+  const [secname, setSecName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState({});
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const validationErrors = validate();
-        console.log(validationErrors)
-        console.log(Object.keys(validationErrors));
-        if (Object.keys(validationErrors).length === 0){
-        alert ('Successfully!');
-        setFirstName('');
-        setSecName('');
-        setEmail('');
-        setMessage('');
-        setError({});
-    }else{
-      setError (validationErrors);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const validationErrors = validate();
+    console.log(validationErrors);
+    console.log(Object.keys(validationErrors));
+    if (Object.keys(validationErrors).length === 0) {
+      alert("Successfully!");
+      setFirstName("");
+      setSecName("");
+      setEmail("");
+      setMessage("");
+      setError({});
+    } else {
+      console.log("pass");
+      setError(validationErrors);
     }
-    };
+  };
 
-    const validate = () =>{
-        const validationErrors = {}
-        if(!firstname.trim()){
-          validationErrors.firstname = 'Name is Required!'
-        }
-        if(!secname.trim()){
-            validationErrors.secname = 'Name is Required!'
-        }
-        if(!email.trim()){
-            validationErrors.email = 'Email is Required!'
-        }else if(!/\S+@\S+\.\S+/ .test(email)){
-            validationErrors.email = 'Email is invalid!'
-        }
-        if(!message.trim()){
-            validationErrors.message = 'Message is Required!'
-        }
-        return validationErrors;
+  const validate = () => {
+    const validationErrors = {};
+    if (!firstname) {
+      validationErrors.firstname = "Name is Required!";
     }
-    return(    
+    if (!secname.trim()) {
+      validationErrors.secname = "Name is Required!";
+    }
+    if (!email.trim()) {
+      validationErrors.email = "Email is Required!";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      validationErrors.email = "Email is invalid!";
+    }
+    if (!message.trim()) {
+      validationErrors.message = "Message is Required!";
+    }
+    return validationErrors;
+  };
+  return (
     <div className="p-7 md:w-6/12 bg-emerald-600 ">
-      <h2 className="text-center text-rose-100 font-bold font-mono text-3xl">React Form</h2>
-    <form className="bg-emerald-600 py-3 px-3 flex flex-col" onSubmit={handleSubmit}>
-      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">
-          First Name
-      </label>
-      <input 
-        className="bg-neutral-300 outline-none w-full placeholder:italic rounded px-3 py-[0.32rem]"
-        id="exampleFormControlInput1"
-        type="text"
-        placeholder="Your First Name"
-        value ={firstname}
-        onChange={(event) => setFirstName(event.target.value)} 
-      />
-        <span className="text-left px-1 text-rose-800 pb-5">{error.firstname}</span>
-      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Last Name</label>
-        <input 
-        className="bg-neutral-300 outline-none w-full placeholder:italic rounded px-3 py-[0.32rem]"
-        type="text"
-        placeholder="Your last name"
-        value = {secname}
-        onChange={(event) =>setSecName(event.target.value)}
-        />
-        <span className="text-left px-1 text-rose-800 pb-5">{error.secname}</span>
-      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Email</label>
-        <input 
-        className="bg-neutral-300 outline-none w-full placeholder:italic rounded px-3 py-[0.32rem]"
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(event) =>setEmail(event.target.value)}
-        />
-        <span className="text-left px-1 text-rose-800 pb-5">{error.email}</span>
-      <label className="text-left px-1 text-rose-100 font-bold font-mono text-lg">Message</label>
-        <textarea 
-        className="bg-neutral-300 outline-none w-full placeholder:italic rounded px-3 py-[0.32rem]"
-        rows= "2"
-        placeholder="Write message"
-        value={message}
-        onChange={(event) =>setMessage(event.target.value)}
-        />
-        <span className="text-left px-1 text-rose-800 pb-5">{error.message}</span>
-      <button 
-        className="sendBtn flex rounded bg-green-700 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
-        <span className="mx-auto">Send</span>
-        {/* <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-5 ">
-        <path
-          d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-        </svg> */}
-      </button>
-    </form>
+      <h2 className="text-center text-rose-100 font-bold font-mono text-3xl">
+        React Form
+      </h2>
+      <form
+        className="bg-emerald-600 py-5 px-3 flex flex-col space-y-10"
+        onSubmit={handleSubmit}
+      >
+        <div className="group relative">
+          <input
+            type="text"
+            required
+            id="username1"
+            className="w-full peer bg-gray-300 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            value={firstname}
+            onChange={(event) => setFirstName(event.target.value)}
+          />
+          <label
+            for="username1"
+            class="text-left top-0 left-0 pt-1 text-rose-400 font-bold font-mono text-lg transform transition-all absolute flex items-center pl-2 group-focus-within:text-xl peer-valid:text-xl group-focus-within:h-1 peer-valid:h-1 group-focus-within:-translate-y-4 peer-valid:-translate-y-4 group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            First Name
+          </label>
+          <span className="text-left px-1 text-rose-800 pb-5">
+            {error.firstname}
+          </span>
+        </div>
+
+        <div className="group relative">
+          <input
+            type="text"
+            required
+            id="username2"
+            className="w-full peer bg-gray-300 outline-none bg-neutral-300  focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            value={secname}
+            onChange={(event) => setSecName(event.target.value)}
+          />
+          <label
+            for="username2"
+            className="text-left top-0 left-0 pt-1 text-rose-400 font-bold font-mono text-lg transform transition-all absolute flex items-center pl-2 group-focus-within:text-xl peer-valid:text-xl group-focus-within:h-1 peer-valid:h-1 group-focus-within:-translate-y-4 peer-valid:-translate-y-4 group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Second Name
+          </label>
+          {error.secname && 
+            <span className="text-left px-1 text-rose-800 pb-5">
+              {error.secname}
+            </span>
+          }
+        </div>
+
+        <div className="group relative">
+          <input
+            type="mail"
+            required
+            id="email"
+            className="w-full peer bg-gray-300 outline-none bg-neutral-300 focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <label
+            for="email"
+            className="text-left top-0 left-0 pt-1 text-rose-400 font-bold font-mono text-lg transform transition-all absolute flex items-center pl-2 group-focus-within:text-xl peer-valid:text-xl group-focus-within:h-1 peer-valid:h-1 group-focus-within:-translate-y-4 peer-valid:-translate-y-4 group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Email
+          </label>
+          <span className="text-left px-1 text-rose-800 pb-5">
+            {error.email}
+          </span>
+        </div>
+
+        <div className="group relative">
+          <textarea
+            required
+            type="message"
+            id="text"
+            className="w-full peer bg-gray-300 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            rows="2"
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+          />
+          <label
+            for="text"
+            class="text-left top-0 left-0 pt-1 text-rose-400 font-bold font-mono text-lg transform transition-all absolute flex items-center pl-2 group-focus-within:text-xl peer-valid:text-xl group-focus-within:h-1 peer-valid:h-1 group-focus-within:-translate-y-4 peer-valid:-translate-y-4 group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Message
+          </label>
+          <span className="text-left px-1 text-rose-800 pb-5">
+            {error.message}
+          </span>
+        </div>
+
+        <button className="sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
+          <span className="mx-auto">Send</span>
+        </button>
+      </form>
+      <div></div>
     </div>
-    )
+  );
 }
 export default FormContact;

@@ -1,15 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "bg-1": "url('./image/bgimage.jpg')",
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/forms')({
-      strategy: 'base', // only generate global styles
-      strategy: 'class', // only generate classes
+    require("@tailwindcss/forms")({
+      strategy: "base", // only generate global styles
+      strategy: "class", // only generate classes
     }),
     // ...
   ],
-}
-
+};
