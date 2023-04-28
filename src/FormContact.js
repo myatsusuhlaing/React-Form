@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
 import "./App.css";
 
 function FormContact() {
@@ -7,6 +8,9 @@ function FormContact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState({});
+  const [ showAlert, setShowAlert] = useState(false);
+  const [showForm, setShowForm] = useState(true);
+  // const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,7 +18,9 @@ function FormContact() {
     console.log(validationErrors);
     console.log(Object.keys(validationErrors));
     if (Object.keys(validationErrors).length === 0) {
-      alert("Successfully!");
+      // alert("Successfully!");
+      setShowAlert(true);
+      setShowForm(false);
       setFirstName("");
       setSecName("");
       setEmail("");
@@ -44,8 +50,28 @@ function FormContact() {
     }
     return validationErrors;
   };
+
+  // function handleRedirect() {
+  //   history.push("/");
+  // }
+
+
   return (
     <div className="p-7 md:w-6/12 bg-emerald-600 ">
+      
+      {showAlert && (
+        <div className="alert alert-success" role="alert">
+          <p className="text-rose-100 font-bold font-mono text-3xl text-center">Form submitted successfully!</p>
+          <div className="pt-5">
+            {/* <button onClick={handleRedirect} className="mx-auto sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
+              back
+            </button> */}
+          </div>
+        </div>
+      )}
+
+      {showForm && (
+      <>
       <h2 className="text-center text-rose-100 font-bold font-mono text-3xl">
         React Form
       </h2>
@@ -136,11 +162,11 @@ function FormContact() {
           </span>
         </div>
 
-        <button className="sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
+        <button type="submit" className="sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
           <span className="mx-auto">Send</span>
         </button>
-      </form>
-      <div></div>
+      </form></>)}
+
     </div>
   );
 }
