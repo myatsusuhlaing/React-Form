@@ -56,12 +56,13 @@ function FormContact() {
 
 
   return (
-    <div className="p-7 md:w-6/12 bg-emerald-600 ">
+    <div className="p-7 md:w-6/12 bg-emerald-600 shadow-lg hover:shadow-purple-900  rounded">
       
       {showAlert && !showForm && (
-        <div className="alert alert-success" role="alert">
-          <p className="text-rose-100 font-bold font-mono text-3xl text-center">Form submitted successfully!</p>
-          
+        <div className="alert alert-success text-center" role="alert" >
+          <p className="text-rose-100 font-bold font-mono md:text-2xl text-center">
+            Form submitted successfully!
+          </p>
           <div className="pt-5">
             <button onClick={handleRedirect} className="mx-auto sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
               back
@@ -72,7 +73,7 @@ function FormContact() {
         <div>
       {showForm &&(
       <>
-      <h2 className="text-center text-rose-100 font-bold font-mono text-3xl">
+      <h2 className="text-center text-rose-100 font-bold font-mono text-3xl ">
         React Form
       </h2>
       <form
@@ -84,7 +85,7 @@ function FormContact() {
             type="text"
             required
             id="username1"
-            className="w-full peer bg-gray-300 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            className="w-full peer bg-gray-200 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
             value={firstname}
             onChange={(event) => setFirstName(event.target.value)}
           />
@@ -104,7 +105,7 @@ function FormContact() {
             type="text"
             required
             id="username2"
-            className="w-full peer bg-gray-300 outline-none bg-neutral-300  focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            className="w-full peer bg-gray-200 outline-none bg-neutral-300  focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
             value={secname}
             onChange={(event) => setSecName(event.target.value)}
           />
@@ -126,7 +127,7 @@ function FormContact() {
             type="mail"
             required
             id="email"
-            className="w-full peer bg-gray-300 outline-none bg-neutral-300 focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            className="w-full peer bg-gray-200 outline-none bg-neutral-300 focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
@@ -146,7 +147,7 @@ function FormContact() {
             required
             type="message"
             id="text"
-            className="w-full peer bg-gray-300 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
+            className="w-full peer bg-gray-200 outline-none bg-neutral-300 outline-none w-full focus:ring-2 focus:ring-purple-600 placeholder:italic rounded px-3 py-[0.35rem]"
             rows="2"
             value={message}
             onChange={(event) => setMessage(event.target.value)}
