@@ -54,7 +54,6 @@ function FormContact() {
     setShowForm(!showForm);
   }
 
-
   return (
     <div className="p-7 md:w-6/12 bg-emerald-600 shadow-lg hover:shadow-purple-900  rounded">
       
@@ -70,7 +69,7 @@ function FormContact() {
           </div>
         </div>
       )}
-        <div>
+      
       {showForm &&(
       <>
       <h2 className="text-center text-rose-100 font-bold font-mono text-3xl ">
@@ -80,6 +79,7 @@ function FormContact() {
         className="bg-emerald-600 py-5 px-3 flex flex-col space-y-10"
         onSubmit={handleSubmit}
       >
+
         <div className="group relative">
           <input
             type="text"
@@ -166,7 +166,9 @@ function FormContact() {
         <button type="submit" className="sendBtn hover:bg-green-800 group-focus:bg-purple-900 transform hover:scale-105 motion-reduce:transform-none flex rounded bg-green-700 px-3 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-200 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">
           <span className="mx-auto">Send</span>
         </button>
-      </form></>)}</div>
+      </form>
+      </>
+      )}
 
     </div>
   );
